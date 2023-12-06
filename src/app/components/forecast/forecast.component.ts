@@ -18,10 +18,11 @@ export class Forecast implements OnInit {
   private fetchData(): void {
     this.httpClient
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=9a2af268c5ae45d59e7170512233007&q=toulouse&days=7`
+        `https://api.weatherapi.com/v1/forecast.json?key=9a2af268c5ae45d59e7170512233007&q=toulouse&days=3`
       )
       .subscribe((res: any) => {
         this.data = res;
+        console.log(this.data);
       });
   }
 }
