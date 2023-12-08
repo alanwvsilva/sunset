@@ -1,10 +1,10 @@
 <div class="flex flex-col gap-4">
-  <h2 class="font-bold text-gray-600 mb-4">Previsão do tempo de hoje</h2>
+  <h2 class="font-bold">Previsão do tempo de hoje</h2>
   <div class="bg-zinc-100 p-12 rounded-2xl border-2 border-gray-50">
     <div class="flex flex-col items-center gap-4">
-      <h2 class="font-bold text-gray-600">
+      <h3 class="font-bold">
         {{ data.location.name }}, {{ data.location.country }}
-      </h2>
+      </h3>
       <div class="flex flex-row items-center gap-4">
         <img
           class="w-12 h-12"
@@ -15,7 +15,7 @@
           <h4 class="text-4xl">
             {{ data.current.temp_c | number : "1.0-0" }}°
           </h4>
-          <p class="text-xs text-gray-500">
+          <p class="text-xs opacity-50">
             Sensação de {{ data.current.feelslike_c | number : "1.0-0" }}°
           </p>
         </div>
@@ -26,10 +26,10 @@
     <div
       class="flex flex-col justify-center items-center bg-zinc-100 p-8 rounded-2xl border-2 border-gray-50"
     >
-      <h3 class="text-gray-600 mb-4">Humidade</h3>
+      <h3 class="mb-4">Humidade</h3>
       <div
         class="radial-progress bg-primary text-primary-content border-4 border-primary"
-        style="--value: {{ data.current.humidity }}"
+        style="--value: {{ data.current.humidity }}; --thickness: .25rem;"
         role="progressbar"
       >
         {{ data.current.humidity }}%
@@ -38,10 +38,10 @@
     <div
       class="flex flex-col justify-center items-center bg-zinc-100 p-8 rounded-2xl border-2 border-gray-50"
     >
-      <h3 class="text-gray-600 mb-4">Vento</h3>
+      <h3 class="mb-4">Vento</h3>
       <div
         class="radial-progress bg-primary text-primary-content border-4 border-primary"
-        style="--value: {{ data.current.wind_kph }}"
+        style="--value: {{ data.current.wind_kph }};  --thickness: .25rem;"
         role="progressbar"
       >
         {{ data.current.wind_kph | number : "" : "pt" }} km/h

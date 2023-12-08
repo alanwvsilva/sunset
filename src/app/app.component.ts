@@ -10,6 +10,7 @@ import pt from '@angular/common/locales/pt';
 registerLocaleData(pt);
 
 import { HttpClient } from '@angular/common/http';
+import { AirQuality } from './components/air-quality/air-quality.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import { HttpClient } from '@angular/common/http';
     Header,
     DayForecast,
     WeekForecast,
+    AirQuality,
   ],
   templateUrl: './app.component.html',
 })
@@ -33,7 +35,7 @@ export class AppComponent implements OnInit {
   fetchLocationData() {
     this.httpClient
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=9a2af268c5ae45d59e7170512233007&q=${this.location}&days=3&lang=pt`
+        `https://api.weatherapi.com/v1/forecast.json?key=9a2af268c5ae45d59e7170512233007&q=${this.location}&aqi=yes&days=3&lang=pt`
       )
       .subscribe((res: any) => {
         this.data = res;
