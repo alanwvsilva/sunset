@@ -1,2 +1,16 @@
-<header></header>
-<forecast></forecast>
+@if (data) {
+<header (locationChange)="setNewLocation($event)"></header>
+<div class="container mx-auto p-8">
+  <div class="grid grid-cols-2 gap-8">
+    <day-forecast [data]="data"></day-forecast>
+    <week-forecast [data]="data"></week-forecast>
+  </div>
+</div>
+}@else {
+<div class="w-full h-screen flex justify-center items-center">
+  <div class="flex flex-col items-center gap-4">
+    <img class="w-14 h-14" src="/assets/images/logo.svg" alt="Sunset" />
+    <span class="loading loading-dots loading-lg"></span>
+  </div>
+</div>
+}

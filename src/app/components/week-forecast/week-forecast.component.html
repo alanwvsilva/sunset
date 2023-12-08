@@ -1,0 +1,36 @@
+<div>
+  <h2 class="font-bold text-gray-600 mb-4">
+    Previsão do tempo para os proximos 3 dias
+  </h2>
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Temperatura</th>
+          <th>Humidade</th>
+          <th>Vento</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of data.forecast.forecastday; track item.date) {
+        <tr>
+          <th>{{ item.date }}</th>
+          <th>
+            <img class="w-16 h-16" src="/assets/images/weather.svg" />
+          </th>
+          <td>
+            <span class="badge badge-primary badge-outline"
+              >{{ item.day.avgtemp_c }}º</span
+            >
+          </td>
+          <td>{{ item.day.avghumidity }}%</td>
+          <td>{{ item.day.avgvis_km }} km/h</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
