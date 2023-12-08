@@ -5,6 +5,10 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header.component';
 import { DayForecast } from './components/day-forecast/day-forecast.component';
 import { WeekForecast } from './components/week-forecast/week-forecast.component';
+import { registerLocaleData } from '@angular/common';
+import pt from '@angular/common/locales/pt';
+registerLocaleData(pt);
+
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -21,22 +25,38 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
+  title = 'Sunset - Weather Forecast';
   httpClient = inject(HttpClient);
-  title = 'Sunset';
-  location = 'Toulouse';
-  data: any = null;
+  location: string | undefined;
+  data: any;
 
-  fetchLocationData(): void {
+  fetchLocationData() {
     this.httpClient
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=9a2af268c5ae45d59e7170512233007&q=${this.location} &days=3`
+        `https://api.weatherapi.com/v1/forecast.json?key=9a2af268c5ae45d59e7170512233007&q=${this.location}&days=3&lang=pt`
       )
       .subscribe((res: any) => {
         this.data = res;
       });
   }
 
-  setInitialLocation(): void {
+  setInitialLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.location = `${position.coords.latitude}, ${position.coords.longitude}`;
+          this.fetchLocationData();
+        },
+        (error) => {
+          this.setFallbackLocation();
+        }
+      );
+    } else {
+      this.setFallbackLocation();
+    }
+  }
+
+  setFallbackLocation() {
     this.httpClient
       .get('https://ipinfo.io/json?token=07ca3d466542c2')
       .subscribe((res: any) => {
@@ -51,7 +71,7 @@ export class AppComponent implements OnInit {
     this.fetchLocationData();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.setInitialLocation();
   }
 }

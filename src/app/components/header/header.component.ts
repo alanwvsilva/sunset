@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -17,7 +17,7 @@ export class Header {
 
     this.httpClient
       .get(
-        `https://api.weatherapi.com/v1/search.json?key=9a2af268c5ae45d59e7170512233007&q=${searchValue}`
+        `https://api.weatherapi.com/v1/search.json?key=9a2af268c5ae45d59e7170512233007&q=${searchValue}&lang=pt`
       )
       .subscribe((res: any) => {
         this.searchData = res;

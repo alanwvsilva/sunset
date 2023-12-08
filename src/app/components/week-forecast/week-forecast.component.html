@@ -17,17 +17,17 @@
       <tbody>
         @for (item of data.forecast.forecastday; track item.date) {
         <tr>
-          <th>{{ item.date }}</th>
+          <th>{{ item.date | date : "dd/MM" }}</th>
           <th>
-            <img class="w-16 h-16" src="/assets/images/weather.svg" />
+            <img class="w-12 h-12" src="{{ item.day.condition.icon }}" />
           </th>
           <td>
             <span class="badge badge-primary badge-outline"
-              >{{ item.day.avgtemp_c }}º</span
+              >{{ item.day.avgtemp_c | number : "1.0-0" }}º</span
             >
           </td>
           <td>{{ item.day.avghumidity }}%</td>
-          <td>{{ item.day.avgvis_km }} km/h</td>
+          <td>{{ item.day.avgvis_km | number : "" : "pt" }} km/h</td>
         </tr>
         }
       </tbody>
