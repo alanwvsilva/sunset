@@ -1,10 +1,14 @@
 <div class="relative">
   <div
     class="radial-progress absolute opacity-20 left-0 top-0"
-    style="--value: 100"
+    style="--value: 100; --size: {{ size }}px"
     role="progressbar"
   ></div>
-  <div class="radial-progress" style="--value: {{ value }}" role="progressbar">
-    {{ label }}{{ indicator }}
+  <div
+    class="radial-progress"
+    style="--value: {{ value }}; --size: {{ size }}px"
+    role="progressbar"
+  >
+    <ng-content></ng-content>
   </div>
 </div>

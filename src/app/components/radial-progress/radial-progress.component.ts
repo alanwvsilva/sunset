@@ -7,6 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class RadialProgress {
   @Input() value: number = 0;
-  @Input() label: number = 0;
-  @Input() indicator: string | undefined;
+  @Input() size: number = 112;
 }

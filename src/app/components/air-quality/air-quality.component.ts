@@ -10,10 +10,10 @@ import { RadialProgress } from '../radial-progress/radial-progress.component';
 })
 export class AirQuality implements OnInit {
   @Input() data: any;
+  value: number = 0;
+  label: number = 0;
   colorClass: string | undefined;
   quality: string | undefined;
-  label: number = 0;
-  value: number = 0;
 
   setColorClass() {
     switch (this.label) {
@@ -45,8 +45,8 @@ export class AirQuality implements OnInit {
   }
 
   setInitialValues() {
-    this.label = this.data.current.air_quality['us-epa-index'];
     this.value = this.label * 16.6;
+    this.label = this.data.current.air_quality['us-epa-index'];
     this.setColorClass();
   }
 
