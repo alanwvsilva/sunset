@@ -1,35 +1,37 @@
 <div>
   <h2 class="font-bold mb-4">Qualidade do ar</h2>
-  <div class="flex gap-8 bg-zinc-100 rounded-2xl border-2 border-gray-50 p-8">
-    <div class="w-1/4 flex flex-col items-center gap-4">
+  <div
+    class="flex flex-col md:flex-row gap-4 bg-zinc-100 rounded-2xl border-2 border-gray-50 p-8"
+  >
+    <div class="flex flex-col items-center gap-4">
       <radial-progress class="{{ colorClass }}" [value]="value">
         {{ label }}
       </radial-progress>
       <h3 class="font-bold text-center">{{ quality }}</h3>
     </div>
-    <div class="w-3/4 flex flex-col justify-center">
+    <div class="flex flex-col justify-center">
       <div class="flex items-center gap-2">
-        <span class="flex w-3 h-3 me-3 bg-green-500 rounded-full"></span
+        <span class="flex w-3 h-3 shrink-0 bg-green-500 rounded-full"></span
         ><span class="text-sm">1. Bom</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="flex w-3 h-3 me-3 bg-cyan-500 rounded-full"></span
+        <span class="flex w-3 h-3 shrink-0 bg-cyan-500 rounded-full"></span
         ><span class="text-sm">2. Moderado</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="flex w-3 h-3 me-3 bg-teal-500 rounded-full"></span
+        <span class="flex w-3 h-3 shrink-0 bg-teal-500 rounded-full"></span
         ><span class="text-sm">3. Insalubre para grupos sensíveis</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="flex w-3 h-3 me-3 bg-yellow-500 rounded-full"></span
+        <span class="flex w-3 h-3 shrink-0 bg-yellow-500 rounded-full"></span
         ><span class="text-sm">4. Insalubre</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="flex w-3 h-3 me-3 bg-orange-500 rounded-full"></span
+        <span class="flex w-3 h-3 shrink-0 bg-orange-500 rounded-full"></span
         ><span class="text-sm">5. Muito Insalubre</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="flex w-3 h-3 me-3 bg-red-500 rounded-full"></span
+        <span class="flex w-3 h-3 shrink-0 bg-red-500 rounded-full"></span
         ><span class="text-sm">6. Perigoso</span>
       </div>
     </div>

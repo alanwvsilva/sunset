@@ -10,4 +10,5 @@ import { RadialProgress } from '../radial-progress/radial-progress.component';
 })
 export class DayForecast {
   @Input() data: any = [];
+  @Input() isAproxLocation: boolean = false;
 }

@@ -2,9 +2,22 @@
   <h2 class="font-bold">Previsão de hoje</h2>
   <div class="bg-zinc-100 p-12 rounded-2xl border-2 border-gray-50">
     <div class="flex flex-col items-center gap-4">
-      <h3 class="font-bold">
-        {{ data.location.name }}, {{ data.location.country }}
-      </h3>
+      <div class="flex items-center gap-2">
+        <h3 class="font-bold">
+          {{ data.location.name }}, {{ data.location.country }}
+        </h3>
+        @if (isAproxLocation) {
+        <div
+          class="tooltip cursor-pointer"
+          data-tip="Está é uma localização aproximada. Para informações precisas, permita o acesso a sua localização ou use o campo de busca."
+        >
+          <img
+            class="w-4 h-4 opacity-50"
+            src="/assets/images/info-circle-fill.svg"
+          />
+        </div>
+        }
+      </div>
       <div class="flex flex-row items-center gap-4">
         <img
           class="w-12 h-12"
@@ -27,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class="grid grid-cols-2 gap-4">
+  <div class="grid md:grid-cols-2 gap-4">
     <div
       class="flex flex-col justify-center items-center bg-zinc-100 p-8 rounded-2xl border-2 border-gray-50"
     >
@@ -45,8 +58,8 @@
       </radial-progress>
     </div>
   </div>
-  <ul class="timeline">
-    <li class="w-1/4">
+  <ul class="timeline -sm:timeline-vertical -sm:items-center">
+    <li class="w-1/4 -sm:gap-x-4">
       <div class="timeline-start">Manhã</div>
       <div class="timeline-middle">
         <img class="w-4 h-4" src="/assets/images/sunrise-fill.svg" />
@@ -56,7 +69,7 @@
       </div>
       <hr />
     </li>
-    <li class="w-1/4">
+    <li class="w-1/4 -sm:gap-x-4">
       <hr />
       <div class="timeline-start">Tarde</div>
       <div class="timeline-middle">
@@ -67,7 +80,7 @@
       </div>
       <hr />
     </li>
-    <li class="w-1/4">
+    <li class="w-1/4 -sm:gap-x-4">
       <hr />
       <div class="timeline-start">Noite</div>
       <div class="timeline-middle">
@@ -78,7 +91,7 @@
       </div>
       <hr />
     </li>
-    <li class="w-1/4">
+    <li class="w-1/4 -sm:gap-x-4">
       <hr />
       <div class="timeline-start">Madrugada</div>
       <div class="timeline-middle">

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { environment } from '../../../environment/environment';
 
 @Component({
   standalone: true,
@@ -12,17 +13,22 @@ export class Header {
   searchData: any = [];
   isDropdownOpen = false;
 
+  /* TODO: Move this function to a service */
+  apiRequest(query: string, endpoint: string = 'forecast.json') {
+    return this.httpClient.get(
+      `https://api.weatherapi.com/v1/${endpoint}?key=${environment.weatherApiKey}&${query}`
+    );
+  }
+
   searchLocation(e: any) {
     const searchValue = e.target.value;
 
-    this.httpClient
-      .get(
-        `https://api.weatherapi.com/v1/search.json?key=9a2af268c5ae45d59e7170512233007&q=${searchValue}&lang=pt`
-      )
-      .subscribe((res: any) => {
+    this.apiRequest(`q=${searchValue}&lang=pt`, 'search.json').subscribe(
+      (res: any) => {
         this.searchData = res;
         this.isDropdownOpen = true;
-      });
+      }
+    );
   }
 
   emitNewLocation(location: string) {

@@ -4,7 +4,7 @@
     <table class="table">
       <!-- head -->
       <thead>
-        <tr>
+        <tr class="-sm:hidden">
           <th></th>
           <th></th>
           <th>Temperatura</th>
@@ -17,7 +17,10 @@
         <tr>
           <th>{{ item.date | date : "dd/MM" }}</th>
           <th>
-            <img class="w-20" src="{{ item.day.condition.icon }}" />
+            <img
+              class="w-12 min-w-[48px]"
+              src="{{ item.day.condition.icon }}"
+            />
           </th>
           <td>
             <div>
@@ -32,8 +35,10 @@
               item.day.condition.text
             }}</span>
           </td>
-          <td>{{ item.day.avghumidity }}%</td>
-          <td>{{ item.day.avgvis_km | number : "" : "pt" }} km/h</td>
+          <td class="-sm:hidden">{{ item.day.avghumidity }}%</td>
+          <td class="-sm:hidden">
+            {{ item.day.avgvis_km | number : "" : "pt" }} km/h
+          </td>
         </tr>
         }
       </tbody>
