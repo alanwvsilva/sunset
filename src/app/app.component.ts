@@ -28,7 +28,6 @@ registerLocaleData(pt);
 })
 export class AppComponent implements OnInit {
   httpClient = inject(HttpClient);
-  title = 'Sunset - Weather Forecast';
   location: string | undefined;
   isAproxLocation: boolean = false;
   data: any;
