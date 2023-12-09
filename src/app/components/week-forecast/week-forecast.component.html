@@ -17,12 +17,20 @@
         <tr>
           <th>{{ item.date | date : "dd/MM" }}</th>
           <th>
-            <img class="w-12 h-12" src="{{ item.day.condition.icon }}" />
+            <img class="w-20" src="{{ item.day.condition.icon }}" />
           </th>
           <td>
-            <span class="badge badge-primary badge-outline"
-              >{{ item.day.avgtemp_c | number : "1.0-0" }}º</span
-            >
+            <div>
+              <span class="text-xl font-bold"
+                >{{ item.day.maxtemp_c | number : "1.0-0" }}º</span
+              >
+              <span class="text-xs"
+                >/{{ item.day.mintemp_c | number : "1.0-0" }}º</span
+              >
+            </div>
+            <span class="text-xs opacity-50">{{
+              item.day.condition.text
+            }}</span>
           </td>
           <td>{{ item.day.avghumidity }}%</td>
           <td>{{ item.day.avgvis_km | number : "" : "pt" }} km/h</td>

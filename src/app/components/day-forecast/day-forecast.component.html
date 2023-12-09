@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-4">
-  <h2 class="font-bold">Previsão do tempo de hoje</h2>
+  <h2 class="font-bold">Previsão de hoje</h2>
   <div class="bg-zinc-100 p-12 rounded-2xl border-2 border-gray-50">
     <div class="flex flex-col items-center gap-4">
       <h3 class="font-bold">
@@ -12,12 +12,17 @@
           alt="{{ data.current.condition.text }}"
         />
         <div>
-          <h4 class="text-4xl">
+          <h4 class="text-4xl mb-2">
             {{ data.current.temp_c | number : "1.0-0" }}°
           </h4>
-          <p class="text-xs opacity-50">
-            Sensação de {{ data.current.feelslike_c | number : "1.0-0" }}°
-          </p>
+          <div class="flex flex-col">
+            <span class="text-xs opacity-80">{{
+              data.current.condition.text
+            }}</span>
+            <span class="text-xs opacity-50">
+              Sensação de {{ data.current.feelslike_c | number : "1.0-0" }}°
+            </span>
+          </div>
         </div>
       </div>
     </div>

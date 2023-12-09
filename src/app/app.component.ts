@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
       )
       .subscribe((res: any) => {
         this.data = res;
+        console.log(this.data);
       });
   }
 
