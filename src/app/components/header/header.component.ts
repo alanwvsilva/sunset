@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { ThemeSwitcher } from '../theme-switcher/theme-switcher.component';
 
 @Component({
   standalone: true,
   selector: 'header',
+  imports: [ThemeSwitcher],
   providers: [ApiService],
   templateUrl: `./header.component.html`,
 })

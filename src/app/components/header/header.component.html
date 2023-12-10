@@ -1,8 +1,8 @@
 <div
-  class="flex flex-col md:flex-row justify-between items-center -md:gap-2 navbar bg-base-100"
+  class="flex flex-col md:flex-row justify-between items-center -md:gap-2 navbar bg-base-100 border-b border-zinc-200"
 >
   <div class="w-full md:w-2/3 flex items-center">
-    <div class="w-1/3 md:w-full">
+    <div class="w-1/3 md:w-full flex items-center gap-2">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
           <svg
@@ -22,7 +22,7 @@
         </div>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          class="menu menu-sm dropdown-content mt-1 z-[1] p-2 border bg-base-100 rounded-box w-52"
         >
           <li>
             <a href="https://alanwvsilva.me" target="_blank"
@@ -37,19 +37,54 @@
           <li>
             <a href="https://github.com/alanwvsilva" target="_blank">Github</a>
           </li>
+          <div class="divider md:hidden m-0"></div>
+          <li>
+            <theme-switcher class="md:hidden"></theme-switcher>
+          </li>
         </ul>
       </div>
+      <theme-switcher class="hidden md:flex"></theme-switcher>
     </div>
     <div class="w-1/3 md:w-full flex justify-center">
       <div class="flex items-center gap-2">
-        <img class="w-6 h-6" src="/assets/images/logo.svg" alt="Sunset" />
+        <svg
+          class="w-6 h-6 [&>g]:fill-black dark:[&>g]:fill-white"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+          width="800px"
+          height="800px"
+          viewBox="0 0 32 32"
+          version="1.1"
+        >
+          <g
+            id="Page-1"
+            stroke="none"
+            stroke-width="1"
+            fill="none"
+            fill-rule="evenodd"
+            sketch:type="MSPage"
+          >
+            <g
+              id="Icon-Set-Filled"
+              sketch:type="MSLayerGroup"
+              transform="translate(-362.000000, -829.000000)"
+            >
+              <path
+                d="M390,855 L366,855 C365.447,855 365,855.447 365,856 C365,856.553 365.447,857 366,857 L390,857 C390.553,857 391,856.553 391,856 C391,855.447 390.553,855 390,855 L390,855 Z M393,851 L363,851 C362.447,851 362,851.447 362,852 C362,852.553 362.447,853 363,853 L393,853 C393.553,853 394,852.553 394,852 C394,851.447 393.553,851 393,851 L393,851 Z M393.476,849 C393.806,847.72 394,846.384 394,845 C394,836.164 386.837,829 378,829 C369.163,829 362,836.164 362,845 C362,846.384 362.194,847.72 362.524,849 L393.476,849 L393.476,849 Z M383,859 L373,859 C372.447,859 372,859.447 372,860 C372,860.553 372.447,861 373,861 L383,861 C383.553,861 384,860.553 384,860 C384,859.447 383.553,859 383,859 L383,859 Z"
+                id="sunset-2"
+                sketch:type="MSShapeGroup"
+              ></path>
+            </g>
+          </g>
+        </svg>
         <span class="font-semibold text-xl">Sunset</span>
       </div>
     </div>
   </div>
   <div class="w-full md:w-1/3 flex justify-end">
     <div class="w-full md:max-w-xs dropdown">
-      <div class="relative">
+      <div class="relative mb-1">
         <input
           #searchInput
           autocomplete="off"
@@ -57,10 +92,10 @@
           name="search"
           type="text"
           placeholder="Procurar por cidade"
-          class="w-full input input-bordered input-sm rounded-lg mb-1 !outline-none"
+          class="w-full input input-bordered focus:border-zinc-400 input-sm rounded-lg !outline-none"
         />
         <img
-          class="w-4 h-4 opacity-20 absolute right-2 top-1/2 -translate-y-1/2"
+          class="w-4 h-4 opacity-20 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"
           src="/assets/images/search.svg"
           alt="Search"
         />
@@ -68,7 +103,7 @@
       @if (isDropdownOpen) {
       <ul
         tabindex="0"
-        class="w-full md:max-w-xs dropdown-content menu bg-gray-100 rounded-lg shadow text-xs p-1 z-[1] empty:hidden"
+        class="w-full md:max-w-xs dropdown-content menu bg-gray-100 dark:bg-base-100 border rounded-lg text-xs p-1 z-[1] empty:hidden"
       >
         @for (item of searchData; track item.id) {
         <li>

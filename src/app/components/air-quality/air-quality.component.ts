@@ -1,11 +1,12 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { RadialProgress } from '../radial-progress/radial-progress.component';
+import { Card } from '../card/card.component';
 
 @Component({
   selector: 'air-quality',
   standalone: true,
-  imports: [DecimalPipe, RadialProgress],
+  imports: [DecimalPipe, RadialProgress, Card],
   templateUrl: './air-quality.component.html',
 })
 export class AirQuality implements OnInit {
