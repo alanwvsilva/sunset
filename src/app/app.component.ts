@@ -9,6 +9,7 @@ import { registerLocaleData } from '@angular/common';
 import { AirQuality } from './components/air-quality/air-quality.component';
 import pt from '@angular/common/locales/pt';
 import { ApiService } from './services/api.service';
+import { ThemeService } from './services/theme.service';
 registerLocaleData(pt);
 
 @Component({
@@ -28,6 +29,7 @@ registerLocaleData(pt);
 })
 export class AppComponent implements OnInit {
   api = inject(ApiService);
+  theme = inject(ThemeService);
   location: string | undefined;
   isAproxLocation: boolean = false;
   data: any;
@@ -72,5 +74,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.setInitialLocation();
+    this.theme.setTheme();
   }
 }

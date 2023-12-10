@@ -1,7 +1,7 @@
 <label class="cursor-pointer grid place-items-center">
   <input
-    (change)="updateTheme($event)"
-    [checked]="isDarkTheme"
+    (change)="theme.handleThemeChange($event)"
+    [checked]="theme.isDarkThemeActive"
     type="checkbox"
     value="forest"
     class="toggle bg-base-content row-start-1 col-start-1 col-span-2"
