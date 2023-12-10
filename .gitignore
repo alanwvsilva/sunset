@@ -1,5 +1,8 @@
 .env
 
+# Project
+/src/environments
+
 # Compiled output
 /dist
 /tmp
